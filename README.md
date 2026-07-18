@@ -1,17 +1,24 @@
 # Torchit NavScan (BLE Prototype)
 
-A modern, high-performance Android Bluetooth Low Energy (BLE) scanning application designed as a hardware diagnostic companion tool for Torchit's assistive mobility devices (such as the Saarthi Smart Cane).
+An Android BLE scanning app that discovers and lists nearby assistive hardware (e.g. Torchit's Saarthi Smart Cane) in real time — built as a hardware diagnostic companion tool.
 
-## 🚀 Key Features
+![Demo](docs/demo.gif)
 
-* **Modern Security Architecture**: Implements fully bundled Android 12+ runtime hardware clearances (`BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`) alongside precise and coarse background tracking checks (`ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`).
-* **Power-Safe Scanner Pipeline**: Integrates an explicit 10-second `Handler` scan timeout countdown loop using clean Java lambdas to prevent device thread locking and accidental hardware battery drain.
-* **Proactive State Interception**: Features transaction-gate hardware checking via `bluetoothAdapter.isEnabled()` to safely block dead antenna scanning loops and guide users via responsive UI Toast alerts.
-* **Accessible Visual Design**: Styled completely using contemporary Material 3 container variables and high-contrast styling tokens. Contains embedded `contentDescription` text nodes across all widgets to provide complete, out-of-the-box integration for Google TalkBack assistive screen readers.
-* **Simulated Fallback Mode**: Contains an embedded mock-data layer that automatically populates the device list with virtual hardware signals (`Saarthi Smart Cane (Simulated)`) upon activation to facilitate isolated UI layout configuration testing.
+## Features
 
-## 🛠️ Tech Stack & Components
+* Live BLE device discovery via `BluetoothLeScanner`, with a 10-second scan timeout (`Handler`) so scans don't run indefinitely.
+* Android 12+ runtime permission handling for `BLUETOOTH_SCAN` / `BLUETOOTH_CONNECT`, plus location permissions required on older Android versions.
+* Checks that Bluetooth is actually enabled before scanning, with a Toast prompt if it isn't.
+* `contentDescription` on every interactive view for TalkBack screen-reader support.
+* Simulated fallback entry (`Saarthi Smart Cane (Simulated)`) so the UI is testable without real hardware nearby.
 
-* **Language & SDK**: Java (JDK 8+ syntax / Lambda execution profiles)
-* **UI Architecture**: Structured, highly performant `LinearLayout` stack running a live asynchronous data conveyor `ArrayAdapter` bound to a native scrolling `ListView`.
-* **Hardware Engine**: Asynchronous, non-blocking background scanner utilizing native Google `BluetoothLeScanner` and decoupled event-driven `ScanCallback` interface listeners.
+## Requirements
+
+* Java, Android Studio
+* minSdk 31 (Android 12) — required by the BLE permission APIs used here
+* A physical device (BLE scanning doesn't work on the emulator)
+
+## Tech Stack
+
+* Java, `BluetoothLeScanner` / `ScanCallback` (Android BLE APIs)
+* `ArrayAdapter` + `ListView` for the live-updating device list
