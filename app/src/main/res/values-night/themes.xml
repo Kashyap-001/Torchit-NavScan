@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TorchitNavScan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Torchit Blue tailored for Dark Mode surfaces -->
+        <item name="colorPrimary">#0D47A1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#00317A</item>
+        <item name="colorOnPrimaryContainer">#D6E4FF</item>
+
+        <!-- Dark backgrounds for nighttime viewing -->
+        <item name="android:windowBackground">#121212</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#E3E2E6</item>
+    </style>
+</resources>

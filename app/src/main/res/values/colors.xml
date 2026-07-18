@@ -1,0 +1,5 @@
+<resources>
+    <color name="torchit_blue">#0077F6</color> <!-- Their official brand logo blue -->
+    <color name="torchit_orange">#FFA200</color> <!-- Their brand highlight orange -->
+    <color name="white">#FFFFFF</color>
+</resources>
