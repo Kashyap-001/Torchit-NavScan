@@ -1,5 +1,10 @@
 # Torchit NavScan (BLE Prototype)
 
+![Java](https://img.shields.io/badge/Language-Java-orange)
+![Platform](https://img.shields.io/badge/Platform-Android-3DDC84)
+![minSdk](https://img.shields.io/badge/minSdk-31-blue)
+![BLE](https://img.shields.io/badge/Bluetooth-Low%20Energy-informational)
+
 An Android BLE scanning app that discovers and lists nearby assistive hardware (e.g. Torchit's Saarthi Smart Cane) in real time — built as a hardware diagnostic companion tool.
 
 ![Demo](docs/demo.gif)
